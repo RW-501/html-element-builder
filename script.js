@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Update the element properties and generated code based on tool changes
-  toolsContainer.addEventListener('change', function(event) {
+  toolsContainer.addEventListener('input', function(event) {
     const selectedElement = elementSelect.value;
-    const updatedElement = updateElement(selectedElement, event.target);
+    const updatedElement = updateElement(selectedElement);
     elementContainer.innerHTML = updatedElement;
     generatedCodeContainer.textContent = updatedElement;
   });
@@ -155,7 +155,7 @@ function createTools(type) {
 }
 
 // Update the element based on the tool changes
-function updateElement(type, target) {
+function updateElement(type) {
   let updatedElement;
   switch (type) {
     case 'button':
@@ -206,4 +206,32 @@ function updateElement(type, target) {
   return updatedElement;
 }
 
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the necessary elements
+  const elementSelect = document.getElementById('elementSelect');
+  const elementContainer = document.getElementById('elementContainer');
+  const toolsContainer = document.getElementById('tools');
+  const generatedCodeContainer = document.getElementById('generatedCode');
+  const seeCodeButton = document.getElementById('seeCodeButton');
 
+  // Handle element selection change
+  elementSelect.addEventListener('change', function() {
+    const selectedElement = elementSelect.value;
+    elementContainer.innerHTML = createNewElement(selectedElement);
+    toolsContainer.innerHTML = createTools(selectedElement);
+  });
+
+  // Update the element properties and generated code based on tool changes
+  toolsContainer.addEventListener('input', function(event) {
+    const selectedElement = elementSelect.value;
+    const updatedElement = updateElement(selectedElement);
+    elementContainer.innerHTML = updatedElement;
+    generatedCodeContainer.textContent = updatedElement;
+  });
+
+  // Show the generated code when the button is clicked
+  seeCodeButton.addEventListener('click', function() {
+    generatedCodeContainer.style.display = 'block';
+  });
+});
