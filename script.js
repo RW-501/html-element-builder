@@ -61,7 +61,7 @@ function createTools(type) {
   let tools;
   switch (type) {
     case 'button':
-      tools = `
+     tools = `
         Button Tools:
         <input type="text" id="buttonText" placeholder="Button Text"><br>
         <label for="buttonBackgroundColor">Background Color:</label>
@@ -147,6 +147,16 @@ function createTools(type) {
           <option value="move">Move</option>
           <!-- Add more cursor styles as needed -->
         </select>
+        <label for="labelDecoration">Decoration:</label>
+        <select id="labelDecoration">
+          <option value="none">None</option>
+          <option value="underline">Underline</option>
+          <option value="line-through">Line Through</option>
+        </select>
+        <label for="labelFontName">Font Name:</label>
+        <input type="text" id="labelFontName" placeholder="Font Name"><br>
+        <label for="labelCenterText">Center Text:</label>
+        <input type="checkbox" id="labelCenterText"><br>
       `;
       break;
     // Add more cases for other elements
