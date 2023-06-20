@@ -205,4 +205,4 @@ function updateElement(type, target) {
   return updatedElement;
 }
 
-// ...
+
