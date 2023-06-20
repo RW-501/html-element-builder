@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const toolsContainer = document.getElementById('tools');
   const generatedCodeContainer = document.getElementById('generatedCode');
   const seeCodeButton = document.getElementById('seeCodeButton');
-}
+});
+
   // Handle element selection change
   elementSelect.addEventListener('change', function() {
     const selectedElement = elementSelect.value;
