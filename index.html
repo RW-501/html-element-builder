@@ -35,12 +35,19 @@
         <!-- The tools to alter the element will be dynamically inserted here -->
       </div>
 
-      <div id="codeContainer" class="text-center">
-        <h3>Generated Code:</h3>
-        <pre id="generatedCode" class="p-3 mb-3" style="background-color: #f8f9fa;"></pre>
-        <button id="seeCodeButton" class="btn btn-primary">See Code</button>
-      </div>
-    </main>
+   
+<!-- Button to show the generated code popup -->
+<button id="seeCodeButton">See Code</button>
+
+<!-- Popup container -->
+<div id="popupContainer" style="display: none;">
+  <div class="popup">
+    <pre id="generatedCode" style="overflow-x: auto;"></pre>
+    <button id="copyCodeButton">Copy Code</button>
+  </div>
+</div>
+
+      </main>
   </div>
 
   <script src="script.js"></script>
