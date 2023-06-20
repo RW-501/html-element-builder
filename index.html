@@ -2,42 +2,47 @@
 <html>
 <head>
   <title>Website Element Builder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.3/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.3/css/bootstrap.min.css">
 </head>
 <body>
-  <header>
-    <h1>Website Element Builder</h1>
-  </header>
+  <div class="container py-5">
+    <header class="text-center">
+      <h1>Website Element Builder</h1>
+    </header>
 
-  <main>
-    <div id="question">
-      <h2>What would you like to build?</h2>
-<select id="elementSelect">
-  <option value="button">Button</option>
-  <option value="input">Input</option>
-  <option value="textarea">Text Area</option>
-  <option value="checkbox">Checkbox</option>
-  <option value="label">Label</option>
-  <!-- Add more options for other elements -->
-</select>
-    </div>
+    <main>
+      <div id="question" class="mb-4">
+        <h2 class="text-center">What would you like to build?</h2>
+        <div class="text-center">
+          <select id="elementSelect" class="form-select form-select-lg mb-3">
+            <option value="button">Button</option>
+            <option value="input">Input</option>
+            <option value="textarea">Text Area</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="label">Label</option>
+            <!-- Add more options for other elements -->
+          </select>
+        </div>
+      </div>
 
-    <div id="elementContainer">
-      <!-- The selected element will be dynamically inserted here -->
-    </div>
+      <div id="elementContainer" class="text-center mb-4">
+        <!-- The selected element will be dynamically inserted here -->
+      </div>
 
-    <div id="tools">
-      <!-- The tools to alter the element will be dynamically inserted here -->
-    </div>
+      <div id="tools" class="mb-4">
+        <!-- The tools to alter the element will be dynamically inserted here -->
+      </div>
 
-    <div id="codeContainer">
-      <h3>Generated Code:</h3>
-      <pre id="generatedCode"></pre>
-      <button id="seeCodeButton">See Code</button>
-    </div>
-  </main>
+      <div id="codeContainer" class="text-center">
+        <h3>Generated Code:</h3>
+        <pre id="generatedCode" class="p-3 mb-3" style="background-color: #f8f9fa;"></pre>
+        <button id="seeCodeButton" class="btn btn-primary">See Code</button>
+      </div>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
