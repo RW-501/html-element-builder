@@ -192,14 +192,17 @@ function updateElement(type) {
       const checkboxCursor = document.getElementById('checkboxCursor').value;
       updatedElement = `<label style="color: ${checkboxTextColor}; font-size: ${checkboxFontSize}px; cursor: ${checkboxCursor}"><input type="checkbox"> ${checkboxLabel}</label>`;
       break;
-    case 'label':
+case 'label':
       const labelText = document.getElementById('labelText').value;
       const labelTextColor = document.getElementById('labelTextColor').value;
       const labelFontSize = document.getElementById('labelFontSize').value;
       const labelFontWeight = document.getElementById('labelFontWeight').checked ? 'bold' : 'normal';
       const labelLink = document.getElementById('labelLink').value;
       const labelCursor = document.getElementById('labelCursor').value;
-      updatedElement = `<label style="color: ${labelTextColor}; font-size: ${labelFontSize}px; font-weight: ${labelFontWeight}; cursor: ${labelCursor}"><a href="${labelLink}">${labelText}</a></label>`;
+      const labelDecoration = document.getElementById('labelDecoration').value;
+      const labelFontName = document.getElementById('labelFontName').value;
+
+      updatedElement = `<label style="color: ${labelTextColor}; font-size: ${labelFontSize}px; font-weight: ${labelFontWeight}; cursor: ${labelCursor}; text-decoration: ${labelDecoration}; font-family: ${labelFontName};"><a href="${labelLink}">${labelText}</a></label>`;
       break;
     // Add more cases for other elements
   }
@@ -222,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toolsContainer.innerHTML = createTools(selectedElement);
   });
 
-  // Update the element properties and generated code based on tool changes
+ // Update the element properties and generated code based on tool changes
   toolsContainer.addEventListener('input', function(event) {
     const selectedElement = elementSelect.value;
     const updatedElement = updateElement(selectedElement);
@@ -230,8 +233,23 @@ document.addEventListener('DOMContentLoaded', function() {
     generatedCodeContainer.textContent = updatedElement;
   });
 
-  // Show the generated code when the button is clicked
+  // Show the generated code popup when the button is clicked
   seeCodeButton.addEventListener('click', function() {
-    generatedCodeContainer.style.display = 'block';
+    const popupContainer = document.getElementById('popupContainer');
+    const generatedCode = document.getElementById('generatedCode');
+    popupContainer.style.display = 'block';
+    generatedCode.textContent = generatedCodeContainer.textContent;
+  });
+
+  // Copy the generated code to the clipboard when the "Copy Code" button is clicked
+  copyCodeButton.addEventListener('click', function() {
+    const generatedCode = document.getElementById('generatedCode');
+    const tempTextArea = document.createElement('textarea');
+    tempTextArea.value = generatedCode.textContent;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempTextArea);
+    alert('Code copied to clipboard!');
   });
 });
