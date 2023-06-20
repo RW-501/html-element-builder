@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const toolsContainer = document.getElementById('tools');
   const generatedCodeContainer = document.getElementById('generatedCode');
   const seeCodeButton = document.getElementById('seeCodeButton');
-});
+
 
   // Handle element selection change
   elementSelect.addEventListener('change', function() {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   seeCodeButton.addEventListener('click', function() {
     generatedCodeContainer.style.display = 'block';
   });
-
+});
 // ...
 
 // Create a new element based on the selected type
