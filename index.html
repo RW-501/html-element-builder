@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Element Builder</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Website Element Builder</h1>
+  </header>
+
+  <main>
+    <div id="question">
+      <h2>What would you like to build?</h2>
+      <select id="elementSelect">
+        <option value="button">Button</option>
+        <option value="input">Input</option>
+        <option value="textarea">Text Area</option>
+        <!-- Add more options for other elements -->
+      </select>
+    </div>
+
+    <div id="elementContainer">
+      <!-- The selected element will be dynamically inserted here -->
+    </div>
+
+    <div id="tools">
+      <!-- The tools to alter the element will be dynamically inserted here -->
+    </div>
+
+    <div id="codeContainer">
+      <h3>Generated Code:</h3>
+      <pre id="generatedCode"></pre>
+      <button id="seeCodeButton">See Code</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
