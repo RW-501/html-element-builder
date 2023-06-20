@@ -165,7 +165,9 @@ function updateElement(type) {
       const buttonFontSize = document.getElementById('buttonFontSize').value;
       const buttonBorderRadius = document.getElementById('buttonBorderRadius').value;
       const buttonBoxShadow = document.getElementById('buttonBoxShadow').value;
-      updatedElement = `<button style="background-color: ${buttonBackgroundColor}; color: ${buttonTextColor}; font-size: ${buttonFontSize}px; border-radius: ${buttonBorderRadius}px; box-shadow: ${buttonBoxShadow}">${buttonText}</button>`;
+      const buttonCenterText = document.getElementById('buttonCenterText').checked;
+
+      updatedElement = `<button style="background-color: ${buttonBackgroundColor}; color: ${buttonTextColor}; font-size: ${buttonFontSize}px; border-radius: ${buttonBorderRadius}px; box-shadow: ${buttonBoxShadow}; ${buttonCenterText ? 'text-align: center;' : ''}">${buttonText}</button>`;
       break;
     case 'input':
       const inputPlaceholder = document.getElementById('inputPlaceholder').value;
